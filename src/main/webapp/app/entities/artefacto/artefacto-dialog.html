@@ -1,0 +1,92 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myArtefactoLabel">Create or edit a Artefacto</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.artefacto.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.artefacto.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="vm.artefacto.nombre"
+                    required />
+            <div ng-show="editForm.nombre.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nombre.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_versiona">Versiona</label>
+            <input type="text" class="form-control" name="versiona" id="field_versiona"
+                    ng-model="vm.artefacto.versiona"
+                    required />
+            <div ng-show="editForm.versiona.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.versiona.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_repositorio">Repositorio</label>
+            <input type="text" class="form-control" name="repositorio" id="field_repositorio"
+                    ng-model="vm.artefacto.repositorio"
+                    required />
+            <div ng-show="editForm.repositorio.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.repositorio.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_comprobado">Comprobado</label>
+            <input type="checkbox" class="form-control" name="comprobado" id="field_comprobado"
+                    ng-model="vm.artefacto.comprobado"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_existe">Existe</label>
+            <input type="checkbox" class="form-control" name="existe" id="field_existe"
+                    ng-model="vm.artefacto.existe"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_grupo">Grupo</label>
+            <input type="text" class="form-control" name="grupo" id="field_grupo"
+                    ng-model="vm.artefacto.grupo"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_version">Version</label>
+            <select class="form-control" id="field_version" name="version" ng-model="vm.artefacto.version" ng-options="version as version.versiona for version in vm.versions track by version.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.version.$invalid">
+            <p class="help-block"
+                ng-show="editForm.version.$error.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

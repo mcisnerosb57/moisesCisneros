@@ -1,0 +1,54 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "version",
+            "otherEntityName": "version",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "versiona"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "versiona",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "repositorio",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "comprobado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "existe",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "grupo",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170519213143",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "artefacto",
+    "pagination": "pagination"
+}

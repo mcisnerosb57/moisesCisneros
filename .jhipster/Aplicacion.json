@@ -1,0 +1,18 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170519213442",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "aplicacion",
+    "pagination": "pagination"
+}
