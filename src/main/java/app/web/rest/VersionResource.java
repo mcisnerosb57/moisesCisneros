@@ -98,6 +98,12 @@ public class VersionResource {
      * @param id the id of the version to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the version, or with status 404 (Not Found)
      */
+    @GetMapping("/versions/aplicacion/{id}")
+    @Timed
+    public  ResponseEntity<List<Version>> getVersionsxAplicationId(@PathVariable Long id) {
+    	log.debug("REST request to get Version : {}", id);
+    	return new ResponseEntity<>(versionService.findAllVersion(id), HttpStatus.OK);
+    }
     @GetMapping("/versions/{id}")
     @Timed
     public ResponseEntity<Version> getVersion(@PathVariable Long id) {

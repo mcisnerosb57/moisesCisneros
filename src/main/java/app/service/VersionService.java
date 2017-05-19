@@ -41,4 +41,7 @@ public interface VersionService {
      *  @param id the id of the entity
      */
     void delete(Long id);
+    
+    
+    List<Version> findAllVersion(Long id);
 }

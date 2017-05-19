@@ -109,6 +109,12 @@ public class ArtefactoResource {
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+    @GetMapping("/artefactos/version/{id}")
+    @Timed
+    public ResponseEntity<List<Artefacto>> getArtefactoxVersionId(@PathVariable Long id) {
+    	log.debug("REST request to get Artefacto : {}", id);
+    	 return new ResponseEntity<>(this.artefactoService.findAllbyVersion(id), HttpStatus.OK);
+    }
 
     /**
      * DELETE  /artefactos/:id : delete the "id" artefacto.

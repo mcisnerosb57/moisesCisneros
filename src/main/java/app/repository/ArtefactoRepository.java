@@ -11,5 +11,6 @@ import java.util.List;
  */
 @SuppressWarnings("unused")
 public interface ArtefactoRepository extends JpaRepository<Artefacto,Long> {
+	List<Artefacto> findByVersionId(Long id);
 
 }

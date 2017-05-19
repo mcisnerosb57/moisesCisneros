@@ -72,4 +72,10 @@ public class VersionServiceImpl implements VersionService{
         log.debug("Request to delete Version : {}", id);
         versionRepository.delete(id);
     }
+
+	@Override
+	public List<Version> findAllVersion(Long id) {
+		// TODO Auto-generated method stub
+		return versionRepository.findByAplicacionId(id);
+	}
 }

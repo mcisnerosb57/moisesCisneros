@@ -72,4 +72,10 @@ public class ArtefactoServiceImpl implements ArtefactoService{
         log.debug("Request to delete Artefacto : {}", id);
         artefactoRepository.delete(id);
     }
+
+	@Override
+	public List<Artefacto> findAllbyVersion(Long id) {
+		// TODO Auto-generated method stub
+		return artefactoRepository.findByVersionId(id);
+	}
 }
