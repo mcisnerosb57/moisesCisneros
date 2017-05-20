@@ -5,17 +5,13 @@
         .module('artefactsCheckApp')
         .controller('AplicacionDetailController', AplicacionDetailController);
 
-    AplicacionDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Aplicacion'];
+    AplicacionDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Aplicacion', 'Version2'];
 
-    function AplicacionDetailController($scope, $rootScope, $stateParams, previousState, entity, Aplicacion) {
+    function AplicacionDetailController($scope, $rootScope, $stateParams, previousState, entity, Aplicacion, Version2) {
         var vm = this;
-
-        vm.aplicacion = entity;
+        console.log(entity);
+        vm.version = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('artefactsCheckApp:aplicacionUpdate', function(event, result) {
-            vm.aplicacion = result;
-        });
-        $scope.$on('$destroy', unsubscribe);
     }
 })();

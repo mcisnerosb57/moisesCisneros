@@ -109,11 +109,28 @@ public class ArtefactoResource {
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+    @GetMapping("/artefactos/comprobar/{id}")
+    @Timed
+    public ResponseEntity<Artefacto> comprobarArtefacto(@PathVariable Long id) {
+    	log.debug("REST request to get Artefacto : {}", id);
+    	Artefacto artefacto = artefactoService.comprobarUno(id);
+    	return Optional.ofNullable(artefacto)
+    			.map(result -> new ResponseEntity<>(
+    					result,
+    					HttpStatus.OK))
+    			.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
     @GetMapping("/artefactos/version/{id}")
     @Timed
     public ResponseEntity<List<Artefacto>> getArtefactoxVersionId(@PathVariable Long id) {
     	log.debug("REST request to get Artefacto : {}", id);
     	 return new ResponseEntity<>(this.artefactoService.findAllbyVersion(id), HttpStatus.OK);
+    }
+    @GetMapping("/artefactos/versionComprobar/{id}")
+    @Timed
+    public ResponseEntity<List<Artefacto>> comprobarArtefactoxVersionId(@PathVariable Long id) {
+    	log.debug("REST request to get Artefacto : {}", id);
+    	return new ResponseEntity<>(this.artefactoService.comprobarAllbyVersion(id), HttpStatus.OK);
     }
 
     /**

@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span>Artefacto</span> {{vm.artefacto.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Nombre</span></dt>
+        <dd>
+            <span>{{vm.artefacto.nombre}}</span>
+        </dd>
+        <dt><span>Versiona</span></dt>
+        <dd>
+            <span>{{vm.artefacto.versiona}}</span>
+        </dd>
+        <dt><span>Repositorio</span></dt>
+        <dd>
+            <span>{{vm.artefacto.repositorio}}</span>
+        </dd>
+        <dt><span>Comprobado</span></dt>
+        <dd>
+            <span>{{vm.artefacto.comprobado}}</span>
+        </dd>
+        <dt><span>Existe</span></dt>
+        <dd>
+            <span>{{vm.artefacto.existe}}</span>
+        </dd>
+        <dt><span>Grupo</span></dt>
+        <dd>
+            <span>{{vm.artefacto.grupo}}</span>
+        </dd>
+        <dt><span>Version</span></dt>
+        <dd>
+            <a ui-sref="version-detail({id:vm.artefacto.version.id})">{{vm.artefacto.version.versionapp}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="artefacto-detail.edit({id:vm.artefacto.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

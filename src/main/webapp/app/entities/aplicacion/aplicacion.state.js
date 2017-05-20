@@ -61,8 +61,8 @@
                 }
             },
             resolve: {
-                entity: ['$stateParams', 'Aplicacion', function($stateParams, Aplicacion) {
-                    return Aplicacion.get({id : $stateParams.id}).$promise;
+                entity: ['$stateParams', 'Version2', function($stateParams, Version2) {
+                    return Version2.get({id : $stateParams.id}).$promise;
                 }],
                 previousState: ["$state", function ($state) {
                     var currentStateData = {

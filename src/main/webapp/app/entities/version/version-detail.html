@@ -1,27 +1,77 @@
-
 <div>
-    <h2><span>Version</span> {{vm.version.id}}</h2>
-    <hr>
-    <jhi-alert-error></jhi-alert-error>
-    <dl class="dl-horizontal jh-entity-details">
-        <dt><span>Versionapp</span></dt>
-        <dd>
-            <span>{{vm.version.versionapp}}</span>
-        </dd>
-        <dt><span>Aplicacion</span></dt>
-        <dd>
-            <a ui-sref="aplicacion-detail({id:vm.version.aplicacion.id})">{{vm.version.aplicacion.nombre}}</a>
-        </dd>
-    </dl>
+    <h2>{{vm.artefactos[0].version.aplicacion.nombre}} {{vm.artefactos[0].version.versionapp}}</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="artefacto.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Artefacto
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombre"><span>Nombre</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="versiona"><span>Versiona</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="repositorio"><span>Repositorio</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="comprobado"><span>Comprobado</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="existe"><span>Existe</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="grupo"><span>Grupo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="version.versiona"><span>Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="artefacto in vm.artefactos track by artefacto.id">
+                    <td><a ui-sref="artefacto-detail({id:artefacto.id})">{{artefacto.id}}</a></td>
+                    <td>{{artefacto.nombre}}</td>
+                    <td>{{artefacto.versiona}}</td>
+                    <td>{{artefacto.repositorio}}</td>
+                    <td>{{artefacto.comprobado}}</td>
+                    <td>{{artefacto.existe}}</td>
+                    <td>{{artefacto.grupo}}</td>
+                    <td>
+                        <a ui-sref="version-detail({id:artefacto.version.id})">{{artefacto.version.versionapp}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="artefacto-detail({id:artefacto.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="artefacto.edit({id:artefacto.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="artefacto.delete({id:artefacto.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                              <button 
+   ng-click="comprobarUno({id:artefacto.id})"
+   class="btn btn-success btn-sm">
+   <span class="glyphicon glyphicon glyphicon-ok"></span>
+   <span class="hidden-xs hidden-sm"></span>
+   </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <button type="submit"
-            ui-sref="{{ vm.previousState }}"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
-    </button>
-
-    <button type="button" ui-sref="version-detail.edit({id:vm.version.id})" class="btn btn-primary">
-        <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-xs hidden-sm"> Edit</span>
-    </button>
 </div>

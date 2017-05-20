@@ -42,7 +42,7 @@ public interface ArtefactoService {
      */
     void delete(Long id);
     
-    
+    Artefacto comprobarUno(Long id);
     List<Artefacto> findAllbyVersion(Long id);
 
 	List<Artefacto> comprobarAllbyVersion(Long id);

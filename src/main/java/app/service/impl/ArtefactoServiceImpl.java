@@ -95,10 +95,10 @@ public class ArtefactoServiceImpl implements ArtefactoService{
 	
 	
 	
-	
+	@Override
 	public Artefacto comprobarUno(Long id){
 		Artefacto aComprobar = artefactoRepository.findOne(id);
-        switch (aComprobar.getRepositorio()) {
+        switch (aComprobar.getRepositorio().toUpperCase()) {
         
         case "BOWER":
         	aComprobar =  new comprobarBower().comprobar(aComprobar);
@@ -112,8 +112,8 @@ public class ArtefactoServiceImpl implements ArtefactoService{
         case "GITHUB":
         	aComprobar =  new comprobarGitHub().comprobar(aComprobar);
         	break;
-
         }	
+        aComprobar.setComprobado(true);
         artefactoRepository.save(aComprobar);
 	return aComprobar;}
 	}
