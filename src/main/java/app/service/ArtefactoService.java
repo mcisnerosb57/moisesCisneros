@@ -44,4 +44,6 @@ public interface ArtefactoService {
     
     
     List<Artefacto> findAllbyVersion(Long id);
+
+	List<Artefacto> comprobarAllbyVersion(Long id);
 }

@@ -1,6 +1,10 @@
 package app.service.impl;
 
 import app.service.ArtefactoService;
+import app.comprobar.comprobarBower;
+import app.comprobar.comprobarGitHub;
+import app.comprobar.comprobarMaven;
+import app.comprobar.comprobarNpm;
 import app.domain.Artefacto;
 import app.repository.ArtefactoRepository;
 import org.slf4j.Logger;
@@ -78,4 +82,42 @@ public class ArtefactoServiceImpl implements ArtefactoService{
 		// TODO Auto-generated method stub
 		return artefactoRepository.findByVersionId(id);
 	}
-}
+	@Override
+	public List<Artefacto> comprobarAllbyVersion(Long id) {
+		// TODO Auto-generated method stub
+		List<Artefacto> artefactos = artefactoRepository.findByVersionId(id);
+		for (Artefacto artefacto : artefactos) {
+			this.comprobarUno(artefacto.getId());
+		}
+		return artefactoRepository.findByVersionId(id);
+	}
+
+	
+	
+	
+	
+	public Artefacto comprobarUno(Long id){
+		Artefacto aComprobar = artefactoRepository.findOne(id);
+        switch (aComprobar.getRepositorio()) {
+        
+        case "BOWER":
+        	aComprobar =  new comprobarBower().comprobar(aComprobar);
+        	break;
+        case "NPM":
+        	aComprobar =  new comprobarNpm().comprobar(aComprobar);
+        	break;
+        case "MAVEN":
+        	aComprobar =  new comprobarMaven().comprobar(aComprobar);
+        	break;
+        case "GITHUB":
+        	aComprobar =  new comprobarGitHub().comprobar(aComprobar);
+        	break;
+
+        }	
+        artefactoRepository.save(aComprobar);
+	return aComprobar;}
+	}
+	
+	
+	
+	
