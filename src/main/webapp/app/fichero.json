@@ -1,0 +1,13 @@
+{
+	"artefacts": [
+
+	{"grupo": "kurento", "nombre": "kurento-client-core", "version":"6.5.0","repositorio":"NPM"},
+	{"grupo": "kurento", "nombre": "kurento-client-elements", "version":"6.5.0","repositorio":"NPM"},
+	{"grupo": "kurento", "nombre": "kurento-utils", "version":"6.5.0","repositorio":"BOWER"},
+	{"grupo": "kurento", "nombre": "kurento-client-core", "version":"6.5.0","repositorio":"BOWER"},
+	{"grupo": "kurento", "nombre": "kurento-client-core", "version":"6.5.0","repositorio":"BOWER"},
+	{"grupo": "kurento", "nombre": "kurento-client", "version":"6.5.0","repositorio":"BOWER"}
+	]
+
+
+}

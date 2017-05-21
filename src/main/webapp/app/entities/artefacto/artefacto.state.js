@@ -132,6 +132,42 @@
                 });
             }]
         })
+        .state('artefacto.cargar', {
+            parent: 'artefacto',
+            url: '/cargar',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/artefacto/artefacto-cargar.html',
+                    controller: 'ArtefactoCargarController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: function () {
+                            return {
+                                nombre: null,
+                                versiona: null,
+                                repositorio: null,
+                                comprobado: null,
+                                existe: null,
+                                grupo: null,
+                                id: null
+                            };
+                        }
+                    }
+                }).result.then(function() {
+                    $state.go('artefacto', null, { reload: 'artefacto' });
+                }, function() {
+                    $state.go('artefacto');
+                });
+            }]
+        })
+
+
+
         .state('artefacto.edit', {
             parent: 'artefacto',
             url: '/{id}/edit',

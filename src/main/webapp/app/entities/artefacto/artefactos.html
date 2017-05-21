@@ -11,9 +11,19 @@
                     </span>
                 </button>
             </div>
+              <div class="col-xs-4 ">
+                <button class="btn btn-primary" ui-sref="artefacto.cargar" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Cargar Artefactos
+                    </span>
+                </button>
+            </div>
         </div>
     </div>
     <br/>
+      <label class="control-label" for="lg">Buscar:</label>
+        <input type="text" class="form-control" ng-model="busqueda">
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
@@ -39,7 +49,7 @@
     background-color: #ECF6CE;
 }
 </style>
-                <tr ng-repeat="artefacto in vm.artefactos track by artefacto.id">
+                <tr ng-repeat="artefacto in vm.artefactos | filter:busqueda  track by artefacto.id">
                     <td ng-class='{red : !artefacto.existe, black: artefacto.existe}'><a ui-sref="artefacto-detail({id:artefacto.id})">{{artefacto.id}}</a></td>
                     <td ng-class='{red : !artefacto.existe, black: artefacto.existe}'>{{artefacto.nombre}}</td>
                     <td ng-class='{red : !artefacto.existe, black: artefacto.existe}'>{{artefacto.versiona}}</td>

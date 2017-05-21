@@ -1,0 +1,71 @@
+<form name="editForm" role="form" novalidate ng-submit="vm.save2()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myArtefactoLabel">Cargar Artefactos</h4>
+    </div>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="nombre"><span>Nombre</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="versiona"><span>Versiona</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="repositorio"><span>Repositorio</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="grupo"><span>Grupo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                            <style type="text/css">
+.red {
+    background-color: #F0D8D8; 
+}
+
+.black {
+    background-color: #ECF6CE;
+}
+</style>
+                <tr ng-repeat="artefact in artefacts ">
+                    <td >{{artefact.nombre}}</td>
+                    <td >{{artefact.version}}</td>
+                    <td >{{artefact.repositorio}}</td>
+                    <td >{{artefact.grupo}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+         <div class="form-group">
+            <label for="field_aplicacion">Aplicacion</label>
+            <select class="form-control" id="field_aplicacion" ng-change="vm.cambiarVersion(vm.artefacto.version.aplicacion.id)"   
+            name="aplicacion" ng-model="vm.artefacto.version.aplicacion" ng-options="aplicacion as aplicacion.nombre for aplicacion in vm.aplicacions track by aplicacion.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+         <div ng-show="editForm.aplicacion.$invalid">
+            <p class="help-block"
+                ng-show="editForm.aplicacion.$error.required">
+                This field is required.
+            </p>
+        </div>
+
+        <div class="form-group">
+            <label for="field_version">Version</label>
+            <select class="form-control" id="field_version" name="version" ng-model="vm.artefacto.version" ng-options="version as version.versionapp for version in vm.versions track by version.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.version.$invalid">
+            <p class="help-block"
+                ng-show="editForm.version.$error.required">
+                This field is required.
+            </p>
+        </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
