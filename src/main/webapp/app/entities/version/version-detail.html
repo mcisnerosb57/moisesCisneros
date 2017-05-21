@@ -44,17 +44,17 @@
 
             <tbody>
                 <tr ng-repeat="artefacto in vm.artefactos | filter:busqueda  track by artefacto.id">
-                    <td ng-class='{red : !artefacto.existe, black: artefacto.existe}'><a ui-sref="artefacto-detail({id:artefacto.id})">{{artefacto.id}}</a></td>
-                    <td ng-class='{red : !artefacto.existe, black: artefacto.existe}'>{{artefacto.nombre}}</td>
-                    <td ng-class='{red : !artefacto.existe, black: artefacto.existe}'>{{artefacto.versiona}}</td>
-                    <td ng-class='{red : !artefacto.existe, black: artefacto.existe}'>{{artefacto.repositorio}}</td>
-                    <td ng-class='{red : !artefacto.existe, black: artefacto.existe}'>{{artefacto.comprobado}}</td>
-                    <td ng-class='{red : !artefacto.existe, black: artefacto.existe}'>{{artefacto.existe}}</td>
-                    <td ng-class='{red : !artefacto.existe, black: artefacto.existe}'>{{artefacto.grupo}}</td>
-                    <td ng-class='{red : !artefacto.existe, black: artefacto.existe}'>
+                    <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'><a ui-sref="artefacto-detail({id:artefacto.id})">{{artefacto.id}}</a></td>
+                    <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>{{artefacto.nombre}}</td>
+                    <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>{{artefacto.versiona}}</td>
+                    <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>{{artefacto.repositorio}}</td>
+                    <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>{{artefacto.comprobado}}</td>
+                    <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>{{artefacto.existe}}</td>
+                    <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>{{artefacto.grupo}}</td>
+                    <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>
                         <a ui-sref="version-detail({id:artefacto.version.id})">{{artefacto.version.versionapp}}</a>
                     </td>
-                    <td ng-class='{red : !artefacto.existe, black: artefacto.existe}' class="text-right">
+                    <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}' class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="artefacto-detail({id:artefacto.id})"
