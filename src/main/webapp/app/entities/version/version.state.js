@@ -127,6 +127,35 @@
                 });
             }]
         })
+
+    .state('version.newVersion', {
+            parent: 'version',
+            url: '/newVersion/{id}',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/version/crear-version.html',
+                    controller: 'Versionnew2controller',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: function () {
+                            return {
+                                versionapp: null,
+                                id: null
+                            };
+                        }
+                    }
+                }).result.then(function() {
+                    $state.go('version', null, { reload: 'version' });
+                }, function() {
+                    $state.go('version');
+                });
+            }]
+        })
         .state('version.edit', {
             parent: 'version',
             url: '/{id}/edit',

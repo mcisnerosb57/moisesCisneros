@@ -44,4 +44,5 @@ public interface VersionService {
     
     
     List<Version> findAllVersion(Long id);
+    List<Version> crearVersionbyVersion(Long id, String versionNueva);
 }

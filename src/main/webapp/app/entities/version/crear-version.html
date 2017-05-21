@@ -1,0 +1,32 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save5()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myArtefactoLabel">Crear version de app existente</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+            <label class="control-label" for="field_nombre">Versión</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.version.versionapp"
+                    required />
+            <div ng-show="editForm.nombre.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nombre.$error.required">
+                    Debe indicar una nueva versión
+                </p>
+            </div>
+        </div>
+
+
+        
+    <div class="modal-footer">
+        <button type="submit"  class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

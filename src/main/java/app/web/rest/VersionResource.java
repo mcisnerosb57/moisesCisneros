@@ -122,6 +122,16 @@ public class VersionResource {
      * @param id the id of the version to delete
      * @return the ResponseEntity with status 200 (OK)
      */
+    
+    @GetMapping("/versions/new/{id}/{versionNueva}")
+	@Timed
+	public ResponseEntity<List<Version>> newVersion(@PathVariable Long id, @PathVariable String versionNueva) throws URISyntaxException {
+		log.debug("REST request to get a page of Versions");
+		return new ResponseEntity<>(versionService.crearVersionbyVersion(id, versionNueva), HttpStatus.OK);	 
+    }
+    
+    
+    
     @DeleteMapping("/versions/{id}")
     @Timed
     public ResponseEntity<Void> deleteVersion(@PathVariable Long id) {
