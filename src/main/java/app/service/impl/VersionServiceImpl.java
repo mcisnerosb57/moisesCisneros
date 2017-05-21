@@ -75,6 +75,11 @@ public class VersionServiceImpl implements VersionService{
      */
     public void delete(Long id) {
         log.debug("Request to delete Version : {}", id);
+        List<Artefacto> borrars = artefactoService.findAllbyVersion(id);
+        for (Artefacto artefacto : borrars) {
+        	artefactoService.delete(artefacto.getId());
+			
+		}
         versionRepository.delete(id);
     }
 
