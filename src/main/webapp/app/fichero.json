@@ -5,8 +5,9 @@
 	{"grupo": "kurento", "nombre": "kurento-client-elements", "version":"6.5.0","repositorio":"NPM"},
 	{"grupo": "kurento", "nombre": "kurento-utils", "version":"6.5.0","repositorio":"BOWER"},
 	{"grupo": "kurento", "nombre": "kurento-client-core", "version":"6.5.0","repositorio":"BOWER"},
-	{"grupo": "kurento", "nombre": "kurento-client-core", "version":"6.5.0","repositorio":"BOWER"},
-	{"grupo": "kurento", "nombre": "kurento-client", "version":"6.5.0","repositorio":"BOWER"}
+	{"grupo": "kurento", "nombre": "kurento-module-creator", "version":"4.0.5","repositorio":"MAVEN"},
+	{"grupo": "kurento", "nombre": "kurento-module-creator", "version":"4.0.5","repositorio":"GITHUB},
+	{"grupo": "kurento", "nombre": "kurento-utils-js", "version":"6.5.0","repositorio":"MAVEN}
 	]
 
 

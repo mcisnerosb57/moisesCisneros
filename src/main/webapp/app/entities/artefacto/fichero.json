@@ -6,7 +6,11 @@
 	{"grupo": "kurento", "nombre": "kurento-utils", "version":"6.5.0","repositorio":"BOWER"},
 	{"grupo": "kurento", "nombre": "kurento-client-core", "version":"6.5.0","repositorio":"BOWER"},
 	{"grupo": "kurento", "nombre": "kurento-client-core", "version":"6.5.0","repositorio":"BOWER"},
-	{"grupo": "kurento", "nombre": "kurento-client", "version":"6.5.0","repositorio":"BOWER"}
+	{"grupo": "kurento", "nombre": "kurento-client", "version":"6.5.0","repositorio":"BOWER"},
+	{"grupo": "kurento", "nombre": "kurento-module-creator", "version":"4.0.5","repositorio":"MAVEN"},
+	{"grupo": "kurento", "nombre": "kurento-module-creator", "version":"4.0.5","repositorio":"GITHUB"},
+	{"grupo": "org.kurento", "nombre": "kurento-utils-js", "version":"6.5.0","repositorio":"MAVEN"},
+	{"grupo": "org.apache.maven.indexer", "nombre": "maven-indexer", "version":"5.1.2","repositorio":"MAVEN"}
 	]
 
 

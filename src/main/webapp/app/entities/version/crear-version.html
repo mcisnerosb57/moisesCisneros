@@ -9,18 +9,22 @@
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
 
-        <div class="form-group">
-            <label class="control-label" for="field_nombre">Versión</label>
-            <input type="text" class="form-control" name="version" id="field_version"
+  
+                <div class="form-group">
+            <label class="control-label" for="field_versionapp">Versionapp</label>
+            <input type="text" class="form-control" name="versionapp" id="field_versionapp"
                     ng-model="vm.version.versionapp"
                     required />
-            <div ng-show="editForm.nombre.$invalid">
+            <div ng-show="editForm.versionapp.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.nombre.$error.required">
+                    ng-show="editForm.versionapp.$error.required">
                     Debe indicar una nueva versión
                 </p>
             </div>
         </div>
+        </div>
+
+
 
 
         

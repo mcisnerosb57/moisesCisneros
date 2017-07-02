@@ -1,5 +1,6 @@
 package app.service;
 
+import app.domain.Artefacto;
 import app.domain.Version;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -42,7 +43,9 @@ public interface VersionService {
      */
     void delete(Long id);
     
+    /**/
     
     List<Version> findAllVersion(Long id);
     List<Version> crearVersionbyVersion(Long id, String versionNueva);
+    List<Artefacto> comprobarVersion (Long id);
 }

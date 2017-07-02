@@ -119,6 +119,19 @@ public class VersionServiceImpl implements VersionService{
 		return versionRepository.findByAplicacionId(id);
 	}
 	
+	@Override
+	public List<Artefacto> comprobarVersion (Long id){
+		List<Artefacto> artefactos = artefactoService.findAllbyVersion(id);
+		for (Artefacto artefacto : artefactos) {
+			artefactoService.comprobarUno(artefacto.getId());
+			
+		}
+		
+		
+		
+		
+		return artefactos;
+	}
 	
 		
 		

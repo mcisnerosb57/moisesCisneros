@@ -29,7 +29,7 @@
         if ((!(id==null)) && (!(id==undefined))){
             console.log(id);
     
-        $http.get('http://127.0.0.1:9797/api/versions/new/'+id+'/'+vm.version.versionapp).success(function(data){
+        $http.get('http://127.0.0.1:9797/api/versions/new/'+id+'/'+vm.version.versionapp+".0").success(function(data){
           
         });
         alert("se ha creado la nueva version");

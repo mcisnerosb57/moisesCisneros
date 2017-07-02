@@ -139,5 +139,19 @@ public class VersionResource {
         versionService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("version", id.toString())).build();
     }
+    
+    
+    @GetMapping("/versions/comprobar/{id}")
+    @Timed
+    public ResponseEntity<Version> getVersionComprobar(@PathVariable Long id) {
+        log.debug("REST request to get Version : {}", id);
+        versionService.comprobarVersion(id);
+        Version version = versionService.findOne(id);
+        return Optional.ofNullable(version)
+            .map(result -> new ResponseEntity<>(
+                result,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 
 }
