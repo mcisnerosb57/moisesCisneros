@@ -35,7 +35,8 @@
                     <th jh-sort-by="comprobado"><span>Comprobado</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="existe"><span>Existe</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="grupo"><span>Grupo</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="version.versiona"><span>Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="version.versiona"><span>Aplicacion</span></span></th>
+                    <th jh-sort-by="version.versiona"><span>Version</span></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -54,9 +55,12 @@
                     <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>{{artefacto.nombre}}</td>
                     <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>{{artefacto.versiona}}</td>
                     <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>{{artefacto.repositorio}}</td>
-                    <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>{{artefacto.comprobado}}</td>
-                    <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>{{artefacto.existe}}</td>
+				    <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'><input type="checkbox"  ng-model="artefacto.comprobado" disabled></td>
+                    <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'><input  type="checkbox"  ng-model="artefacto.existe" disabled></td>
                     <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>{{artefacto.grupo}}</td>
+					<td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>
+                        <a ui-sref="aplicacion-detail({id:artefacto.version.aplicacion.id})">{{artefacto.version.aplicacion.nombre}}</a>
+                    </td>
                     <td ng-class='{red : artefacto.existe==false, black: artefacto.existe}'>
                         <a ui-sref="version-detail({id:artefacto.version.id})">{{artefacto.version.versionapp}}</a>
                     </td>
